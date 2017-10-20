@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="tsvietkovich@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="tsvietkovich">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="me"/>
+    <schema id="5" parent="1" name="mydb"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="sys"/>
+    <table id="9" parent="2" name="apartments"/>
+    <table id="10" parent="2" name="clients"/>
+    <table id="11" parent="2" name="orders"/>
+    <table id="12" parent="2" name="products"/>
+    <routine id="13" parent="2" name="selectApartment">
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <column id="14" parent="9" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="15" parent="9" name="District">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="16" parent="9" name="Address">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="17" parent="9" name="Square">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="18" parent="9" name="Room">
+      <Position>5</Position>
+      <DataType>int(5)|0</DataType>
+    </column>
+    <column id="19" parent="9" name="Price">
+      <Position>6</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <key id="20" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="10" name="Client_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="22" parent="10" name="NameClient">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="23" parent="10" name="Telephone">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="24" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Client_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="11" name="Order_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="11" name="OrderDate">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="27" parent="11" name="Product_ID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="28" parent="11" name="Client_ID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="29" parent="11" name="Client_ID">
+      <ColNames>Client_ID</ColNames>
+    </index>
+    <index id="30" parent="11" name="Product_ID">
+      <ColNames>Product_ID</ColNames>
+    </index>
+    <key id="31" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Order_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="32" parent="11" name="orders_ibfk_2">
+      <ColNames>Product_ID</ColNames>
+      <RefSchemaName>tsvietkovich</RefSchemaName>
+      <RefTableName>products</RefTableName>
+      <RefColNames>Product_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="33" parent="11" name="orders_ibfk_1">
+      <ColNames>Client_ID</ColNames>
+      <RefSchemaName>tsvietkovich</RefSchemaName>
+      <RefTableName>clients</RefTableName>
+      <RefColNames>Client_ID</RefColNames>
+    </foreign-key>
+    <column id="34" parent="12" name="Product_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="12" name="NameProduct">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="36" parent="12" name="Price">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="37" parent="12" name="Items">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="38" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Product_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <argument id="39" parent="13" name="dist">
+      <DataType>varchar(20)|0</DataType>
+    </argument>
+    <argument id="40" parent="13" name="adrs">
+      <DataType>varchar(30)|0</DataType>
+    </argument>
+    <argument id="41" parent="13" name="sq">
+      <DataType>double|0</DataType>
+    </argument>
+    <argument id="42" parent="13" name="rm">
+      <DataType>int(11)|0</DataType>
+    </argument>
+    <argument id="43" parent="13" name="prc">
+      <DataType>double|0</DataType>
+    </argument>
+  </database-model>
+</dataSource>
